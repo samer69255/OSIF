@@ -843,7 +843,7 @@ def dump_mail():
 
 			try:
                                 out.write(z['email'] + '\n')
-			        print W + '[' + G + z['name'] + W + ']' + R + ' >> ' + W + z['email']
+			        print W + '[' + G + z['name'] + W + ']' + R + ' >> ' + W + z['email'] + ' : ' + getYear(int(z['id']))
 			except KeyError:
 				pass
 		out.close()
@@ -919,6 +919,7 @@ def dump_id_id():
 
 def main():
   global target_id
+  print(getYear('1'));
 
   try:
 	cek = raw_input(R + 'D3b2y' + W +' >> ')
@@ -1239,6 +1240,25 @@ def info(target):
 		print '[*] Done '
 		main()
 
+        
+def getYear(Id):
+    Id = int(Id)
+    if Id < 10300000:
+        return '2004'
+    elif Id >= 10300000 and Id < 55201813:
+        return '2005'
+    elif Id >= 55201813 and Id < 637527647:
+        return '2006'
+    elif Id >= 637527647 and Id < 1074950022:
+        return '2007'
+    elif Id >= 1074950022 and Id < 1542381153:
+        return '2008'
+    elif Id >= 1542381153 and Id < 100001240120017:
+        return '2009'
+    elif Id >= 100001240120017 and Id < 10000540120017:
+        return '2010'
+    elif Id >= 10000540120017:
+        return '2011'
 #
 ##########################################################################
 
