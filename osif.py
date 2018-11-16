@@ -796,7 +796,7 @@ def dump_phone():
 				print W + '[' + G + z['name'] + W + ']' + R + ' >> ' + W + z['mobile_phone']
 			except KeyError:
 				pass
-		out.close()
+		out.close();
 		print '[*] done'
 		print "[*] all phone numbers successfuly retrieved"
 		print '[*] file saved : output/'+n[0].split(' ')[0] + '_phone.txt'
