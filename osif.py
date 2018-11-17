@@ -832,18 +832,18 @@ def dump_mail():
 	print '[*] start'
 
 	try:
-		r = requests.get('https://graph.facebook.com/me/friends?access_token='+token)
+		r = requests.get('https://graph.facebook.com/me/friends?access_token='+token+"&fields=email,id,name")
                 a = json.loads(r.text)
 
 		out = open('output/' + n[0].split(' ')[0] + '_mails.txt','w')
 
 		for i in a['data']:
-			x = requests.get("https://graph.facebook.com/"+i['id']+"?access_token="+token)
-                        z = json.loads(x.text)
+			
+	
 
 			try:
-                                out.write(z['email'] + '\n')
-			        print W + '[' + G + z['name'] + W + ']' + R + ' >> ' + W + z['email'] + ' : ' + getYear(int(z['id']))
+                                out.write(i['email'] + '\n')
+			        print W + '[' + G + i['name'] + W + ']' + R + ' >> ' + W + i['email'] + ' : ' + getYear(int(i['id']))
 			except KeyError:
 				pass
 		out.close()
